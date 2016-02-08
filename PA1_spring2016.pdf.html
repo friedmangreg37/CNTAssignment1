@@ -1,0 +1,107 @@
+
+
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>UF Authentication - GatorLink Login &raquo; University of Florida</title>
+
+        <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" type="text/css" media="screen" href="/ufl-shibboleth-templates/css/style.css?20130303" />
+        <!--[if IEMobile]> 
+        <link rel="stylesheet" type="text/css" href="/ufl-shibboleth-templates/css/mobile-ie.css?20130303" media="screen" /> 
+        <![endif]-->
+
+    </head>
+
+    <body>
+    <div class="header">
+        <div class="wrap">
+            <h1>UF Authentication - GatorLink Login</h1>
+        </div>
+    </div>
+    <div class="content">
+        <div class="wrap">
+
+        <!-- Load balancer check requires this string    -->
+        <!-- Enter your GatorLink username and password. -->
+
+    	
+
+        
+
+        <!-- p>You have asked to login to urn&#x3a;edu&#x3a;ufl&#x3a;prod&#x3a;00145.</p -->
+
+        
+            <form action="/idp/Authn/UserPassword" method="post" name="loginForm">
+        
+
+	        <p>
+                <label for="username">GatorLink Username</label><br/>
+                <input id="username" name="j_username" type="text" autocapitalize="off" placeholder="GatorLink Username" />
+            </p>
+
+            <p>
+        		<label for="password">Password</label><br/>
+        		<input id="password" name="j_password" type="password" autocapitalize="off" placeholder="Password" />
+            </p>
+
+            <p><input type="submit" name="login" value="Login" class="submit"/></p>
+
+        </form>
+
+        <hr>
+
+    	<script type="text/javascript" language="JavaScript">
+    	    <!--
+    	       var focusControl = document.forms["loginForm"].elements["j_username"];
+    	       
+    	       if (focusControl.type != "hidden") {
+    	       focusControl.focus();
+    	       }
+    	     -->
+    	</script>
+
+            <div class="extra-links">
+                <ul>
+                    <li><a href="https://my.ufl.edu/psp/ps_pwd/EMPLOYEE/EMPL/c/UF_PT_CUSTOM.UF_PA_FORGOT_PSWD.GBL">Change Password</a></li>
+                    <li><a href="https://my.ufl.edu/psp/ps_pwd/EMPLOYEE/EMPL/c/MAINTAIN_SECURITY.UF_PA_FORGOT_PSWD.GBL">Forgot Password</a></li>
+                    <li><a href="https://my.ufl.edu/psp/ps_pwd/EMPLOYEE/EMPL/c/UF_PA_GL_ACCT_MGMT.UF_PA_SS_GL_CREATE.GBL">Create Account</a></li>
+                    <li><a href="https://my.ufl.edu/ps/TroubleSigning.html">Trouble Signing On?</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+        <div class="wrap">
+            <span class="uf-monogram"></span>
+            <a href="http://www.ufl.edu" class="footer_logo">University of Florida</a>
+            <p>&copy; <a href="http://www.ufl.edu/" id="footerHome" title="University of Florida">University of Florida<span></span></a>, Gainesville, FL 32611</p>
+      <!-- 
+       RemoteHost: 10.136.2.118, 
+       RemoteAddr: 10.136.2.118,
+       shibidp-prod01.osg.ufl.edu
+       -->
+      
+
+            <p>For assistance, contact the <a href="http://helpdesk.ufl.edu/">UF Computing Help Desk</a>.</p>
+            <p>This page was last updated September 15, 2013.</p>
+        </div>
+    </div>
+
+    </body>
+</html>

@@ -1,1 +1,0 @@
-# CNTAssignment1
