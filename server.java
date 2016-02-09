@@ -34,11 +34,15 @@ class server {
                 }
                 String words[] = clientMessage.split(" ");
                 if(words[0].equals("add")) {
-                    int answer = Integer.parseInt(words[1]);
-                    for(int i = 2; i < words.length; i++) {
-                        answer += Integer.parseInt(words[i]);
+                    try {
+                        int answer = Integer.parseInt(words[1]);
+                        for(int i = 2; i < words.length; i++) {
+                            answer += Integer.parseInt(words[i]);
+                        }
+                        response = Integer.toString(answer);
+                    }catch(NumberFormatException e) {
+                        response = "-4";
                     }
-                    response = Integer.toString(answer);
                 }
                 else {
                    response = "5";
