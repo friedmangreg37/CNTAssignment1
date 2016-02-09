@@ -53,9 +53,19 @@ class server {
                     }catch(NumberFormatException e) {
                         response = "-4";
                     }
+                }else if(words[0].equals("multiply")) {
+                    try {
+                        int answer = Integer.parseInt(words[1]);
+                        for(int i = 2; i < words.length; i++) {
+                            answer *= Integer.parseInt(words[i]);
+                        }
+                        response = Integer.toString(answer);
+                    }catch(NumberFormatException e) {
+                        response = "-4";
+                    }
                 }
                 else {
-                   response = "5";
+                   response = "-1";
                 }
                 outToClient.writeBytes(response + '\n');
             }
