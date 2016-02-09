@@ -20,31 +20,30 @@ class server {
             DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
 
             //send initial "Hello" response to confirm connection:
-            response = "Hello!\n";
-            outToClient.writeBytes(response);
+            response = "Hello!";
+            outToClient.writeBytes(response + '\n');
 
             //loop until client exits:
             while(true) {
                 clientMessage = inFromClient.readLine();    //get the command from the client
-                /*System.out.println()
-                clientMessage = clientMessage.trim();
-                if(clientMessage == "bye") {
-                    response = "-5\n";
-                    outToClient.writeBytes(response);
+                System.out.println("get: " + clientMessage);
+                if(clientMessage.equals("bye")) {
+                    response = "-5";
+                    outToClient.writeBytes(response + '\n');
                     break;
                 }
                 String words[] = clientMessage.split(" ");
-                if(words[0] == "add") {
+                if(words[0].equals("add")) {
                     int answer = Integer.parseInt(words[1]);
                     for(int i = 2; i < words.length; i++) {
                         answer += Integer.parseInt(words[i]);
                     }
                     response = Integer.toString(answer);
                 }
-                else {*/
-                   response = "-5\n";
-                //}
-                outToClient.writeBytes(response);
+                else {
+                   response = "5";
+                }
+                outToClient.writeBytes(response + '\n');
             }
         }
     }
