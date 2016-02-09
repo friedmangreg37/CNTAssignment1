@@ -26,9 +26,10 @@ class server {
             //loop until client exits:
             while(true) {
                 clientMessage = inFromClient.readLine();    //get the command from the client
-                System.out.println("get: " + clientMessage);
+                System.out.print("get: " + clientMessage + ", return: ");
                 if(clientMessage.equals("bye")) {
                     response = "-5";
+                    System.out.println(response);
                     outToClient.writeBytes(response + '\n');
                     break;
                 }
@@ -67,6 +68,7 @@ class server {
                 else {
                    response = "-1";
                 }
+                System.out.println(response);
                 outToClient.writeBytes(response + '\n');
             }
         }
