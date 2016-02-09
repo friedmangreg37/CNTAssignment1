@@ -34,6 +34,12 @@ class server {
                     System.out.println(response);
                     outToClient.writeBytes(response + '\n');
                     break;      //then exit loop since client will disconnect
+                }else if(clientMessage.equals("terminate")) {   //client wants to terminate all
+                    //so set the response accordingly, print it and send to client
+                    response = "-5";
+                    System.out.println(response);
+                    outToClient.writeBytes(response + '\n');
+                    System.exit(0);     //end all processes
                 }
                 //get an array of the words send from client:
                 String words[] = clientMessage.split(" ");
