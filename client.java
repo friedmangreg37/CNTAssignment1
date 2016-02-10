@@ -6,11 +6,20 @@ class client {
 		String input;		//String input from the user
 		String response;	//String response from the server
 		int answer;		//integer answer to the command
+		String url;		//the server url
+		int portNumber;		//the port number
+
+		if(argv.length < 2) {
+			//requires user the supply url and port number at runtime
+			throw new Exception("Please supply IP address and port number");
+		}
+		url = argv[0];		//get the url from the first argument supplied
+		portNumber = Integer.parseInt(argv[1]);	//get the port number from the second argument
 
 		//input stream from user:
 		BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
 		//create client socket and connect to server:
-		Socket clientSocket = new Socket("localhost", 4893);
+		Socket clientSocket = new Socket(url, portNumber);
 		//create output stream attacked to socket:
 		DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
 		//create input stream attacked to socket:

@@ -3,9 +3,17 @@ import java.net.*;
 
 class server {
 	public static void main(String argv[]) throws Exception {
-     	String clientMessage;
-        String response;
-        ServerSocket welcomeSocket = new ServerSocket(4893);	//create socket at port 4893
+     	String clientMessage;     //message to be received from client
+        String response;        //response to be sent to client
+        int portNumber;         //the port number
+
+        if(argv.length < 1) {
+            //requires the user to supply the port number at runtime
+            throw new Exception("Please supply the port number");
+        }
+        portNumber = Integer.parseInt(argv[0]);     //get the port number from the arguments
+
+        ServerSocket welcomeSocket = new ServerSocket(portNumber);	//create socket at port 4893
 
         while(true) {
             //welcome socket waits for contact from client:
