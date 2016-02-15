@@ -13,19 +13,19 @@ class server {
         }
         portNumber = Integer.parseInt(argv[0]);     //get the port number from the arguments
 
-        ServerSocket welcomeSocket = new ServerSocket(portNumber);	//create socket at port 4893
+        ServerSocket socket = new ServerSocket(portNumber);	//create socket at port 4893
 
         while(true) {
-            //welcome socket waits for contact from client:
-         	Socket connectionSocket = welcomeSocket.accept();
+            //socket waits for contact from client:
+         	Socket clientSocket = socket.accept();
             //get IP address of connecting client:
-            String clientIP = connectionSocket.getInetAddress().getHostAddress();
+            String clientIP = clientSocket.getInetAddress().getHostAddress();
             //print message stating connection made:
             System.out.println("get connection from " + clientIP);
             //create input stream attached to socket:
-            BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
+            BufferedReader inFromClient = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             //create output stream attached to socket:
-            DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
+            DataOutputStream outToClient = new DataOutputStream(clientSocket.getOutputStream());
 
             //send initial "Hello" response to confirm connection:
             response = "Hello!";
@@ -47,6 +47,7 @@ class server {
                     response = "-5";
                     System.out.println(response);
                     outToClient.writeBytes(response + '\n');
+                    socket.close();     //close the server socket
                     System.exit(0);     //end all processes
                 }
                 //get an array of the words send from client:
